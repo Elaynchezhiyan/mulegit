@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="6cfa1f70-5b0e-4ef0-89dc-4f43011d604d" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="mulegitFlow" doc:id="edc01200-c38d-4180-b128-c9c24ea64e3d" >
+		<http:listener doc:name="Listener" doc:id="e4e0372e-9e5f-4255-aae2-0d5cdbfa4cb3" config-ref="HTTP_Listener_config" path="/api"/>
+		<set-payload value='#["hi elan"]' doc:name="Set Payload" doc:id="beb583af-2f43-49d9-9195-74be2e502b5b" />
+	</flow>
+</mule>
